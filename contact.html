@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <title>Contact — Invasive weeds data &amp; AI workshop</title>
+    <meta name="description" content="Request an invitation or ask a question about the UC Davis June 2026 workshop." />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <div class="site-header__inner">
+          <p class="site-title">
+            <a href="index.html">Invasive weeds · Data &amp; AI</a>
+          </p>
+          <nav aria-label="Primary">
+            <ul class="nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="agenda.html">Agenda</a></li>
+              <li><a href="contact.html" aria-current="page">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <section class="hero">
+        <div class="hero__inner">
+          <p class="hero__eyebrow">Registration</p>
+          <h1>Contact the organising committee</h1>
+          <p class="hero__lead">
+            The workshop is invite-only. Send a short message if you would like to participate,
+            contribute, or ask a question. You can also email the co-chairs directly.
+          </p>
+        </div>
+      </section>
+
+      <main class="narrow">
+        <section>
+          <p style="color:var(--color-muted)">
+            <strong>Email:</strong>
+            <a href="mailto:mbmesgaran@ucdavis.edu">Prof. Mohsen Mesgaran</a>
+            ·
+            <a href="mailto:liorb@volcani.agri.gov.il">Dr. Lior Blank</a>
+          </p>
+        </section>
+
+        <section class="card">
+          <h2 style="margin-top:0">Message form</h2>
+          <p class="form-hint" style="margin-top:0">
+            Submissions are sent via Formsubmit. If you prefer, email the addresses above instead.
+          </p>
+          <form
+            class="form-grid"
+            action="https://formsubmit.co/mbmesgaran@ucdavis.edu"
+            method="post"
+            style="margin-top:1rem"
+          >
+            <input type="hidden" name="_subject" value="Workshop 2026 — website inquiry" />
+            <input type="hidden" name="_next" value="https://invasion-science-technology.github.io/workshop-2026/thank-you.html" />
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" required autocomplete="name" />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required autocomplete="email" />
+            </div>
+            <div>
+              <label for="affiliation">Affiliation (optional)</label>
+              <input id="affiliation" name="affiliation" type="text" autocomplete="organization" />
+            </div>
+            <div>
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required placeholder="Interest in participating, contribution ideas, or questions"></textarea>
+            </div>
+            <div>
+              <button class="btn btn--primary" type="submit">Send message</button>
+              <p class="form-hint">
+                First submission: check the inbox for Formsubmit activation if prompted.
+              </p>
+            </div>
+          </form>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="site-footer__inner">
+          <div class="footer-logos">
+            <a href="https://www.ucdavis.edu/" title="University of California, Davis">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/8/8c/University_of_California_Davis_logo.svg"
+                alt="University of California, Davis"
+                width="180"
+                height="48"
+              />
+            </a>
+            <a class="footer-partner" href="https://www.bard-isus.com/" title="BARD — Binational Agricultural R&amp;D">
+              <span class="footer-partner__name">BARD</span>
+              <span class="footer-partner__sub">US–Israel Agricultural R&amp;D</span>
+            </a>
+            <a href="https://unu.edu/" title="United Nations University">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/4/42/Logo_of_the_United_Nations_University.svg"
+                alt="United Nations University"
+                width="120"
+                height="52"
+              />
+            </a>
+          </div>
+          <div class="footer-meta">
+            <p>
+              Supported by BARD (United States-Israel Binational Agricultural Research and
+              Development Fund) and the United Nations University Working Group on Biological
+              Invasions.
+            </p>
+            <p>© 2026 Workshop organising committee</p>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+  </body>
+</html>
