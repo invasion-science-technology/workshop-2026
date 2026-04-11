@@ -298,7 +298,7 @@ textarea { min-height: 140px; resize: vertical; }
 /* Speakers grid */
 .speakers-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(5, 1fr);
   gap: 1.5rem;
   margin-top: 1.5rem;
 }
@@ -373,6 +373,6 @@ textarea { min-height: 140px; resize: vertical; }
 @media (max-width: 640px) {
   .site-header__inner { flex-direction: column; height: auto; padding-top: 0.85rem; padding-bottom: 0.85rem; align-items: flex-start; }
   .nav { width: 100%; }
-  .speakers-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; }
+  .speakers-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
 }
 
