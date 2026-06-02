@@ -90,12 +90,23 @@
                 <option value="other">Other</option>
               </select>
             </div>
+            <div>
+              <label for="amount_usd">Amount in USD</label>
+              <input
+                id="amount_usd"
+                name="amount_usd"
+                type="number"
+                min="0"
+                step="0.01"
+                required
+                inputmode="decimal"
+                placeholder="e.g. 125.50"
+              />
+            </div>
             <fieldset class="form-fieldset">
               <legend>Payment details for reimbursement</legend>
               <p class="form-hint" style="margin-bottom:0.75rem">
-                Provide the payment details needed to reimburse you. Bank and cheque details are
-                sensitive personal data; they should only be accessed by the reimbursement
-                processing team.
+                Provide the payment details needed to reimburse you.
               </p>
               <div class="form-grid">
                 <div>
