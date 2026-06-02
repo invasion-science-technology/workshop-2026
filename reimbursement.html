@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GEGCJ9L7WZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "G-GEGCJ9L7WZ");
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <title>Reimbursement claims — Invasive weeds data &amp; AI workshop</title>
+    <meta
+      name="description"
+      content="Submit reimbursement claim details and receipt images for the UC Davis June 2026 workshop."
+    />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <div class="site-header__inner">
+          <p class="site-title">
+            <a href="index.html">Invasive weeds · Data &amp; AI</a>
+          </p>
+          <nav aria-label="Primary">
+            <ul class="nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="speakers.html">Invited Participants</a></li>
+              <li><a href="agenda.html">Agenda</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <section class="hero">
+        <div class="hero__inner">
+          <p class="hero__eyebrow">Participant reimbursements</p>
+          <h1>Submit a reimbursement claim</h1>
+          <p class="hero__lead">
+            Participants can submit reimbursement details and upload receipt images until
+            <strong>June 30, 2026, 11:59&nbsp;pm PT</strong>.
+          </p>
+        </div>
+      </section>
+
+      <main class="narrow">
+        <section class="card">
+          <h2 style="margin-top:0">Claim details</h2>
+          <p class="form-hint" style="margin-top:0">
+            Upload one or more receipt images. Accepted file types depend on your device, but photos
+            such as JPG, PNG, HEIC, or WebP are preferred.
+          </p>
+          <form
+            id="reimbursement-form"
+            class="form-grid"
+            action="https://script.google.com/macros/s/AKfycbyX52qlovlsEHKrojXEChE_0IpjMSv42hFFeMn0pmhmp5iNNeRHG6VY2Aiu9BOSibazdg/exec"
+            method="post"
+            style="margin-top:1rem"
+          >
+            <input type="hidden" name="form_name" value="reimbursement_claim" />
+            <input type="hidden" id="receipt_payload" name="receipt_payload" />
+            <input type="hidden" id="return_url" name="return_url" />
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+
+            <div>
+              <label for="full_name">Full name</label>
+              <input id="full_name" name="full_name" type="text" required autocomplete="name" />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required autocomplete="email" />
+            </div>
+            <div>
+              <label for="expenditure_type">Expenditure type</label>
+              <select id="expenditure_type" name="expenditure_type" required>
+                <option value="" selected disabled>Select one</option>
+                <option value="transport">Transport</option>
+                <option value="accommodation">Accommodation</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <fieldset class="form-fieldset">
+              <legend>Payment details for reimbursement</legend>
+              <p class="form-hint" style="margin-bottom:0.75rem">
+                Provide the payment details needed to reimburse you. Bank and cheque details are
+                sensitive personal data; they should only be accessed by the reimbursement
+                processing team.
+              </p>
+              <div class="form-grid">
+                <div>
+                  <label for="account_holder">Account holder / payee name</label>
+                  <input id="account_holder" name="account_holder" type="text" required autocomplete="name" />
+                </div>
+                <div>
+                  <label for="account_currency">Account currency</label>
+                  <input
+                    id="account_currency"
+                    name="account_currency"
+                    type="text"
+                    required
+                    placeholder="e.g. USD, EUR, ILS"
+                  />
+                </div>
+                <div>
+                  <label for="payment_method">Payment method</label>
+                  <select id="payment_method" name="payment_method" required>
+                    <option value="" selected disabled>Select one</option>
+                    <option value="wire">Bank wire / bank transfer</option>
+                    <option value="cheque">Cheque (US / Canada)</option>
+                    <option value="other">Other (specify)</option>
+                  </select>
+                </div>
+                <div data-payment-method="other">
+                  <label for="payment_method_other">Specify other payment method</label>
+                  <input id="payment_method_other" name="payment_method_other" type="text" />
+                </div>
+                <div data-payment-method="wire">
+                  <label for="bank_country">Bank country</label>
+                  <input id="bank_country" name="bank_country" type="text" autocomplete="country-name" />
+                </div>
+                <div data-payment-method="wire">
+                  <label for="bank_name">Bank name</label>
+                  <input id="bank_name" name="bank_name" type="text" />
+                </div>
+                <div data-payment-method="wire">
+                  <label for="bank_address">Bank address (optional)</label>
+                  <input id="bank_address" name="bank_address" type="text" />
+                </div>
+                <div data-payment-method="wire">
+                  <label for="account_id_type">Account identifier type</label>
+                  <select id="account_id_type" name="account_id_type">
+                    <option value="" selected disabled>Select one</option>
+                    <option value="sepa">SEPA / IBAN</option>
+                    <option value="us">US routing + account number</option>
+                    <option value="canada">Canada institution + transit + account number</option>
+                    <option value="israel">Israel bank + branch + account number</option>
+                    <option value="other">Other / local account identifier</option>
+                  </select>
+                  <p class="form-hint">
+                    For US accounts, the local account ID is usually the routing number plus account
+                    number. For SEPA/EU accounts, use IBAN.
+                  </p>
+                </div>
+                <div data-account-id-type="sepa other">
+                  <label for="iban">IBAN</label>
+                  <input id="iban" name="iban" type="text" autocomplete="off" />
+                </div>
+                <div data-account-id-type="sepa israel other">
+                  <label for="swift_bic">SWIFT / BIC</label>
+                  <input id="swift_bic" name="swift_bic" type="text" autocomplete="off" />
+                </div>
+                <div data-account-id-type="us">
+                  <label for="us_routing_number">US routing number</label>
+                  <input id="us_routing_number" name="us_routing_number" type="text" inputmode="numeric" autocomplete="off" />
+                </div>
+                <div data-account-id-type="us">
+                  <label for="us_account_number">US account number</label>
+                  <input id="us_account_number" name="us_account_number" type="text" autocomplete="off" />
+                </div>
+                <div data-account-id-type="canada">
+                  <label for="canada_institution_number">Canada institution number</label>
+                  <input id="canada_institution_number" name="canada_institution_number" type="text" inputmode="numeric" autocomplete="off" />
+                </div>
+                <div data-account-id-type="canada">
+                  <label for="canada_transit_number">Canada transit number</label>
+                  <input id="canada_transit_number" name="canada_transit_number" type="text" inputmode="numeric" autocomplete="off" />
+                </div>
+                <div data-account-id-type="canada">
+                  <label for="canada_account_number">Canada account number</label>
+                  <input id="canada_account_number" name="canada_account_number" type="text" autocomplete="off" />
+                </div>
+                <div data-account-id-type="israel">
+                  <label for="israel_bank_number">Israel bank number</label>
+                  <input id="israel_bank_number" name="israel_bank_number" type="text" inputmode="numeric" autocomplete="off" />
+                </div>
+                <div data-account-id-type="israel">
+                  <label for="israel_branch_number">Israel branch number</label>
+                  <input id="israel_branch_number" name="israel_branch_number" type="text" inputmode="numeric" autocomplete="off" />
+                </div>
+                <div data-account-id-type="israel">
+                  <label for="israel_account_number">Israel account number</label>
+                  <input id="israel_account_number" name="israel_account_number" type="text" autocomplete="off" />
+                </div>
+                <div data-account-id-type="other">
+                  <label for="international_account_number">Account number / local identifier</label>
+                  <input id="international_account_number" name="international_account_number" type="text" autocomplete="off" />
+                </div>
+                <div data-payment-method="cheque">
+                  <label for="cheque_mailing_address">Cheque mailing address</label>
+                  <textarea
+                    id="cheque_mailing_address"
+                    name="cheque_mailing_address"
+                    placeholder="Mailing address for a US or Canadian cheque"
+                  ></textarea>
+                </div>
+                <div data-payment-method="wire">
+                  <label for="intermediary_bank">Intermediary bank details (optional)</label>
+                  <textarea
+                    id="intermediary_bank"
+                    name="intermediary_bank"
+                    placeholder="Optional correspondent/intermediary bank details if your bank requires them"
+                  ></textarea>
+                </div>
+              </div>
+            </fieldset>
+            <div>
+              <label for="message">Short message (optional)</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Optional context, e.g. trip dates, currency, or notes for the organiser"
+              ></textarea>
+            </div>
+            <div>
+              <label for="receipts">Receipt images</label>
+              <input
+                id="receipts"
+                name="receipts"
+                type="file"
+                accept="image/png,image/jpeg,image/webp,image/heic,image/heif,.png,.jpg,.jpeg,.webp,.heic,.heif"
+                multiple
+                required
+              />
+              <p class="form-hint">Select all relevant receipt images (PNG, JPG, WebP, HEIC, or HEIF) before submitting.</p>
+            </div>
+            <div>
+              <button id="reimbursement-submit" class="btn btn--primary" type="submit">
+                Submit claim
+              </button>
+              <p id="reimbursement-status" class="form-hint">
+                Deadline: June 30, 2026, end of day Pacific Time.
+              </p>
+            </div>
+          </form>
+        </section>
+
+        <div class="callout">
+          <p>
+            <strong>Important:</strong> Submitting a claim does not guarantee reimbursement. The
+            organising committee may request additional documentation before processing.
+          </p>
+        </div>
+      </main>
+
+      <footer class="site-footer">
+        <div class="site-footer__inner">
+          <div class="footer-logos">
+            <a href="https://www.ucdavis.edu/" title="University of California, Davis">
+              <img
+                src="https://regulatedplants.unu.edu/static/img/UCD-plant-science-logo.png"
+                alt="University of California, Davis"
+                width="180"
+                height="48"
+              />
+            </a>
+            <a href="https://www.bard-isus.com/" title="BARD — Binational Agricultural R&amp;D">
+              <img
+                src="assets/bard-logo.png"
+                alt="BARD — United States-Israel Binational Agricultural Research and Development Fund"
+                width="200"
+                height="52"
+              />
+            </a>
+            <a href="https://unu.edu/" title="United Nations University">
+              <img
+                src="https://regulatedplants.unu.edu/static/img/UNU-INWEH_LOGO_NV.svg"
+                alt="United Nations University"
+                width="120"
+                height="52"
+              />
+            </a>
+          </div>
+          <div class="footer-meta">
+            <p>
+              Supported by BARD (United States-Israel Binational Agricultural Research and
+              Development Fund) and the United Nations University Working Group on Biological
+              Invasions.
+            </p>
+            <p>© 2026 Workshop organising committee</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        var deadline = new Date("2026-07-01T07:00:00Z");
+        var form = document.getElementById("reimbursement-form");
+        var status = document.getElementById("reimbursement-status");
+        var submit = document.getElementById("reimbursement-submit");
+        var receipts = document.getElementById("receipts");
+        var receiptPayload = document.getElementById("receipt_payload");
+        var returnUrl = document.getElementById("return_url");
+        var paymentMethod = document.getElementById("payment_method");
+        var accountIdType = document.getElementById("account_id_type");
+        var methodBlocks = document.querySelectorAll("[data-payment-method]");
+        var accountIdBlocks = document.querySelectorAll("[data-account-id-type]");
+        var placeholderEndpoint = form.action.indexOf("PASTE_DEPLOYMENT_ID_HERE") !== -1;
+
+        var requiredByMethod = {
+          wire: ["bank_country", "bank_name", "account_id_type"],
+          cheque: ["cheque_mailing_address"],
+          other: ["payment_method_other"],
+        };
+
+        var requiredByAccountId = {
+          sepa: ["iban", "swift_bic"],
+          israel: ["swift_bic", "israel_bank_number", "israel_branch_number", "israel_account_number"],
+          us: ["us_routing_number", "us_account_number"],
+          canada: ["canada_institution_number", "canada_transit_number", "canada_account_number"],
+          other: ["swift_bic", "international_account_number"],
+        };
+
+        function setBlockState(block, isVisible, requiredFields) {
+          block.hidden = !isVisible;
+          Array.prototype.forEach.call(block.querySelectorAll("input, textarea, select"), function (field) {
+            field.required = isVisible && requiredFields.indexOf(field.id) !== -1;
+            if (!isVisible) {
+              field.value = "";
+            }
+          });
+        }
+
+        function readReceiptFile(file) {
+          return new Promise(function (resolve, reject) {
+            var reader = new FileReader();
+            reader.onload = function () {
+              var result = String(reader.result || "");
+              var commaIndex = result.indexOf(",");
+              var metadata = commaIndex === -1 ? "" : result.slice(0, commaIndex);
+              var contentTypeMatch = metadata.match(/^data:([^;]+);base64$/);
+
+              resolve({
+                name: file.name,
+                type: file.type || (contentTypeMatch ? contentTypeMatch[1] : ""),
+                data: commaIndex === -1 ? result : result.slice(commaIndex + 1),
+              });
+            };
+            reader.onerror = function () {
+              reject(reader.error || new Error("Could not read " + file.name));
+            };
+            reader.readAsDataURL(file);
+          });
+        }
+
+        function prepareReceiptPayload() {
+          var files = Array.prototype.slice.call(receipts.files || []);
+          if (!files.length) {
+            return Promise.reject(new Error("Please upload at least one receipt image."));
+          }
+
+          return Promise.all(files.map(readReceiptFile)).then(function (payload) {
+            receiptPayload.value = JSON.stringify(payload);
+          });
+        }
+
+        function syncBankFields() {
+          var selectedMethod = paymentMethod.value;
+          var selectedAccountId = selectedMethod === "wire" ? accountIdType.value : "";
+          var requiredMethodFields = requiredByMethod[selectedMethod] || [];
+          var requiredAccountIdFields = requiredByAccountId[selectedAccountId] || [];
+
+          Array.prototype.forEach.call(methodBlocks, function (block) {
+            var methods = block.getAttribute("data-payment-method").split(" ");
+            setBlockState(block, methods.indexOf(selectedMethod) !== -1, requiredMethodFields);
+          });
+
+          Array.prototype.forEach.call(accountIdBlocks, function (block) {
+            var accountIds = block.getAttribute("data-account-id-type").split(" ");
+            setBlockState(block, selectedMethod === "wire" && accountIds.indexOf(selectedAccountId) !== -1, requiredAccountIdFields);
+          });
+        }
+
+        returnUrl.value = window.location.href;
+
+        if (Date.now() >= deadline.getTime()) {
+          Array.prototype.forEach.call(form.elements, function (field) {
+            field.disabled = true;
+          });
+          status.textContent = "The reimbursement claim deadline has passed.";
+          return;
+        }
+
+        form.addEventListener("submit", function (event) {
+          if (placeholderEndpoint) {
+            event.preventDefault();
+            status.textContent =
+              "This form still needs the Google Apps Script Web App URL before it can accept claims.";
+            submit.focus();
+            return;
+          }
+
+          if (form.dataset.receiptsPrepared === "true") {
+            return;
+          }
+
+          event.preventDefault();
+          submit.disabled = true;
+          status.textContent = "Preparing receipt upload...";
+
+          prepareReceiptPayload()
+            .then(function () {
+              form.dataset.receiptsPrepared = "true";
+              receipts.disabled = true;
+              form.enctype = "application/x-www-form-urlencoded";
+              status.textContent = "Submitting claim...";
+              form.submit();
+            })
+            .catch(function (error) {
+              submit.disabled = false;
+              status.textContent = error.message || "Could not prepare receipt upload.";
+            });
+        });
+
+        paymentMethod.addEventListener("change", syncBankFields);
+        accountIdType.addEventListener("change", syncBankFields);
+        syncBankFields();
+      })();
+    </script>
+  </body>
+</html>
