@@ -78,17 +78,12 @@
               <input id="full_name" name="full_name" type="text" required autocomplete="name" />
             </div>
             <div>
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" required autocomplete="email" />
+              <label for="organisation">Organisation</label>
+              <input id="organisation" name="organisation" type="text" required autocomplete="organization" />
             </div>
             <div>
-              <label for="expenditure_type">Expenditure type</label>
-              <select id="expenditure_type" name="expenditure_type" required>
-                <option value="" selected disabled>Select one</option>
-                <option value="transport">Transport</option>
-                <option value="accommodation">Accommodation</option>
-                <option value="other">Other</option>
-              </select>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required autocomplete="email" />
             </div>
             <div>
               <label for="amount_usd">Amount in USD</label>
@@ -102,136 +97,6 @@
                 inputmode="decimal"
                 placeholder="e.g. 125.50"
               />
-            </div>
-            <fieldset class="form-fieldset">
-              <legend>Payment details for reimbursement</legend>
-              <p class="form-hint" style="margin-bottom:0.75rem">
-                Provide the payment details needed to reimburse you.
-              </p>
-              <div class="form-grid">
-                <div>
-                  <label for="account_holder">Account holder / payee name</label>
-                  <input id="account_holder" name="account_holder" type="text" required autocomplete="name" />
-                </div>
-                <div>
-                  <label for="account_currency">Account currency</label>
-                  <input
-                    id="account_currency"
-                    name="account_currency"
-                    type="text"
-                    required
-                    placeholder="e.g. USD, EUR, ILS"
-                  />
-                </div>
-                <div>
-                  <label for="payment_method">Payment method</label>
-                  <select id="payment_method" name="payment_method" required>
-                    <option value="" selected disabled>Select one</option>
-                    <option value="wire">Bank wire / bank transfer</option>
-                    <option value="cheque">Cheque (US / Canada)</option>
-                    <option value="other">Other (specify)</option>
-                  </select>
-                </div>
-                <div data-payment-method="other">
-                  <label for="payment_method_other">Specify other payment method</label>
-                  <input id="payment_method_other" name="payment_method_other" type="text" />
-                </div>
-                <div data-payment-method="wire">
-                  <label for="bank_country">Bank country</label>
-                  <input id="bank_country" name="bank_country" type="text" autocomplete="country-name" />
-                </div>
-                <div data-payment-method="wire">
-                  <label for="bank_name">Bank name</label>
-                  <input id="bank_name" name="bank_name" type="text" />
-                </div>
-                <div data-payment-method="wire">
-                  <label for="bank_address">Bank address (optional)</label>
-                  <input id="bank_address" name="bank_address" type="text" />
-                </div>
-                <div data-payment-method="wire">
-                  <label for="account_id_type">Account identifier type</label>
-                  <select id="account_id_type" name="account_id_type">
-                    <option value="" selected disabled>Select one</option>
-                    <option value="sepa">SEPA / IBAN</option>
-                    <option value="us">US routing + account number</option>
-                    <option value="canada">Canada institution + transit + account number</option>
-                    <option value="israel">Israel bank + branch + account number</option>
-                    <option value="other">Other / local account identifier</option>
-                  </select>
-                  <p class="form-hint">
-                    For US accounts, the local account ID is usually the routing number plus account
-                    number. For SEPA/EU accounts, use IBAN.
-                  </p>
-                </div>
-                <div data-account-id-type="sepa other">
-                  <label for="iban">IBAN</label>
-                  <input id="iban" name="iban" type="text" autocomplete="off" />
-                </div>
-                <div data-account-id-type="sepa israel other">
-                  <label for="swift_bic">SWIFT / BIC</label>
-                  <input id="swift_bic" name="swift_bic" type="text" autocomplete="off" />
-                </div>
-                <div data-account-id-type="us">
-                  <label for="us_routing_number">US routing number</label>
-                  <input id="us_routing_number" name="us_routing_number" type="text" inputmode="numeric" autocomplete="off" />
-                </div>
-                <div data-account-id-type="us">
-                  <label for="us_account_number">US account number</label>
-                  <input id="us_account_number" name="us_account_number" type="text" autocomplete="off" />
-                </div>
-                <div data-account-id-type="canada">
-                  <label for="canada_institution_number">Canada institution number</label>
-                  <input id="canada_institution_number" name="canada_institution_number" type="text" inputmode="numeric" autocomplete="off" />
-                </div>
-                <div data-account-id-type="canada">
-                  <label for="canada_transit_number">Canada transit number</label>
-                  <input id="canada_transit_number" name="canada_transit_number" type="text" inputmode="numeric" autocomplete="off" />
-                </div>
-                <div data-account-id-type="canada">
-                  <label for="canada_account_number">Canada account number</label>
-                  <input id="canada_account_number" name="canada_account_number" type="text" autocomplete="off" />
-                </div>
-                <div data-account-id-type="israel">
-                  <label for="israel_bank_number">Israel bank number</label>
-                  <input id="israel_bank_number" name="israel_bank_number" type="text" inputmode="numeric" autocomplete="off" />
-                </div>
-                <div data-account-id-type="israel">
-                  <label for="israel_branch_number">Israel branch number</label>
-                  <input id="israel_branch_number" name="israel_branch_number" type="text" inputmode="numeric" autocomplete="off" />
-                </div>
-                <div data-account-id-type="israel">
-                  <label for="israel_account_number">Israel account number</label>
-                  <input id="israel_account_number" name="israel_account_number" type="text" autocomplete="off" />
-                </div>
-                <div data-account-id-type="other">
-                  <label for="international_account_number">Account number / local identifier</label>
-                  <input id="international_account_number" name="international_account_number" type="text" autocomplete="off" />
-                </div>
-                <div data-payment-method="cheque">
-                  <label for="cheque_mailing_address">Cheque mailing address</label>
-                  <textarea
-                    id="cheque_mailing_address"
-                    name="cheque_mailing_address"
-                    placeholder="Mailing address for a US or Canadian cheque"
-                  ></textarea>
-                </div>
-                <div data-payment-method="wire">
-                  <label for="intermediary_bank">Intermediary bank details (optional)</label>
-                  <textarea
-                    id="intermediary_bank"
-                    name="intermediary_bank"
-                    placeholder="Optional correspondent/intermediary bank details if your bank requires them"
-                  ></textarea>
-                </div>
-              </div>
-            </fieldset>
-            <div>
-              <label for="message">Short message (optional)</label>
-              <textarea
-                id="message"
-                name="message"
-                placeholder="Optional context, e.g. trip dates, currency, or notes for the organiser"
-              ></textarea>
             </div>
             <div>
               <label for="receipts">Receipt images</label>
@@ -313,35 +178,7 @@
         var receipts = document.getElementById("receipts");
         var receiptPayload = document.getElementById("receipt_payload");
         var returnUrl = document.getElementById("return_url");
-        var paymentMethod = document.getElementById("payment_method");
-        var accountIdType = document.getElementById("account_id_type");
-        var methodBlocks = document.querySelectorAll("[data-payment-method]");
-        var accountIdBlocks = document.querySelectorAll("[data-account-id-type]");
         var placeholderEndpoint = form.action.indexOf("PASTE_DEPLOYMENT_ID_HERE") !== -1;
-
-        var requiredByMethod = {
-          wire: ["bank_country", "bank_name", "account_id_type"],
-          cheque: ["cheque_mailing_address"],
-          other: ["payment_method_other"],
-        };
-
-        var requiredByAccountId = {
-          sepa: ["iban", "swift_bic"],
-          israel: ["swift_bic", "israel_bank_number", "israel_branch_number", "israel_account_number"],
-          us: ["us_routing_number", "us_account_number"],
-          canada: ["canada_institution_number", "canada_transit_number", "canada_account_number"],
-          other: ["swift_bic", "international_account_number"],
-        };
-
-        function setBlockState(block, isVisible, requiredFields) {
-          block.hidden = !isVisible;
-          Array.prototype.forEach.call(block.querySelectorAll("input, textarea, select"), function (field) {
-            field.required = isVisible && requiredFields.indexOf(field.id) !== -1;
-            if (!isVisible) {
-              field.value = "";
-            }
-          });
-        }
 
         function readReceiptFile(file) {
           return new Promise(function (resolve, reject) {
@@ -373,23 +210,6 @@
 
           return Promise.all(files.map(readReceiptFile)).then(function (payload) {
             receiptPayload.value = JSON.stringify(payload);
-          });
-        }
-
-        function syncBankFields() {
-          var selectedMethod = paymentMethod.value;
-          var selectedAccountId = selectedMethod === "wire" ? accountIdType.value : "";
-          var requiredMethodFields = requiredByMethod[selectedMethod] || [];
-          var requiredAccountIdFields = requiredByAccountId[selectedAccountId] || [];
-
-          Array.prototype.forEach.call(methodBlocks, function (block) {
-            var methods = block.getAttribute("data-payment-method").split(" ");
-            setBlockState(block, methods.indexOf(selectedMethod) !== -1, requiredMethodFields);
-          });
-
-          Array.prototype.forEach.call(accountIdBlocks, function (block) {
-            var accountIds = block.getAttribute("data-account-id-type").split(" ");
-            setBlockState(block, selectedMethod === "wire" && accountIds.indexOf(selectedAccountId) !== -1, requiredAccountIdFields);
           });
         }
 
@@ -434,9 +254,6 @@
             });
         });
 
-        paymentMethod.addEventListener("change", syncBankFields);
-        accountIdType.addEventListener("change", syncBankFields);
-        syncBankFields();
       })();
     </script>
   </body>
