@@ -75,15 +75,15 @@
 
             <div>
               <label for="full_name">Full name</label>
-              <input id="full_name" name="full_name" type="text" required autocomplete="name" />
+              <input id="full_name" name="full_name" type="text" autocomplete="name" />
             </div>
             <div>
               <label for="organisation">Organisation</label>
-              <input id="organisation" name="organisation" type="text" required autocomplete="organization" />
+              <input id="organisation" name="organisation" type="text" autocomplete="organization" />
             </div>
             <div>
               <label for="email">Email</label>
-              <input id="email" name="email" type="email" required autocomplete="email" />
+              <input id="email" name="email" type="email" autocomplete="email" />
             </div>
             <div>
               <label for="amount_usd">Amount in USD</label>
@@ -93,7 +93,6 @@
                 type="number"
                 min="0"
                 step="0.01"
-                required
                 inputmode="decimal"
                 placeholder="e.g. 125.50"
               />
@@ -106,7 +105,6 @@
                 type="file"
                 accept="image/png,image/jpeg,image/webp,image/heic,image/heif,.png,.jpg,.jpeg,.webp,.heic,.heif"
                 multiple
-                required
               />
               <p class="form-hint">Select all relevant receipt images (PNG, JPG, WebP, HEIC, or HEIF) before submitting.</p>
             </div>
@@ -205,7 +203,8 @@
         function prepareReceiptPayload() {
           var files = Array.prototype.slice.call(receipts.files || []);
           if (!files.length) {
-            return Promise.reject(new Error("Please upload at least one receipt image."));
+            receiptPayload.value = "[]";
+            return Promise.resolve();
           }
 
           return Promise.all(files.map(readReceiptFile)).then(function (payload) {
